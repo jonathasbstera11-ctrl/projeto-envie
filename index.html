@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENVIE — Escola Missionária</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         TELA DE LOGIN
+    ========================== -->
+    <div id="login-screen" class="login-screen">
+
+        <div class="login-box">
+
+            <div class="login-logo">
+                <div class="logo-symbol">E</div>
+
+                <div>
+                    <h1>ENVIE</h1>
+                    <p>ESCOLA MISSIONÁRIA</p>
+                </div>
+            </div>
+
+            <h2>Acesso à plataforma</h2>
+            <p class="login-description">
+                Entre com seus dados para acessar o ambiente do aluno.
+            </p>
+
+            <form id="login-form">
+
+                <div class="form-group">
+                    <label for="login-email">E-mail</label>
+                    <input
+                        type="email"
+                        id="login-email"
+                        placeholder="Digite seu e-mail"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input
+                        type="password"
+                        id="login-password"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    Entrar
+                </button>
+
+            </form>
+
+            <div class="demo-login">
+
+                <p>Login de demonstração</p>
+
+                <div class="demo-buttons">
+                    <button
+                        type="button"
+                        class="btn btn-outline demo-btn"
+                        data-email="aluno@envie.com"
+                        data-password="123456"
+                    >
+                        Aluno
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-outline demo-btn"
+                        data-email="professor@envie.com"
+                        data-password="123456"
+                    >
+                        Professor
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SISTEMA
+    ========================== -->
+    <div id="app" class="app hidden">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <div class="logo-symbol">E</div>
+
+                <div>
+                    <strong>ENVIE</strong>
+                    <span>ESCOLA MISSIONÁRIA</span>
+                </div>
+
+            </div>
+
+
+            <nav class="sidebar-menu">
+
+                <a href="#" class="menu-item active" data-screen="dashboard-screen">
+                    <span class="menu-icon">⌂</span>
+                    <span>Início</span>
+                </a>
+
+                <a href="#" class="menu-item" data-screen="materials-screen">
+                    <span class="menu-icon">▣</span>
+                    <span>Materiais</span>
+                </a>
+
+                <a href="#" class="menu-item" data-screen="activities-screen">
+                    <span class="menu-icon">✓</span>
+                    <span>Atividades</span>
+                </a>
+
+                <a href="#" class="menu-item" data-screen="notices-screen">
+                    <span class="menu-icon">!</span>
+                    <span>Avisos</span>
+                </a>
+
+                <a href="#" class="menu-item" data-screen="calendar-screen">
+                    <span class="menu-icon">□</span>
+                    <span>Calendário</span>
+                </a>
+
+                <a href="#" class="menu-item" data-screen="documents-screen">
+                    <span class="menu-icon">▤</span>
+                    <span>Documentos</span>
+                </a>
+
+                <!-- TAREFA 04 -->
+                <a href="#" class="menu-item" data-screen="students-screen">
+                    <span class="menu-icon">♙</span>
+                    <span>Alunos</span>
+                </a>
+
+                <!-- TAREFA 05 -->
+                <a href="#" class="menu-item" data-screen="schedule-screen">
+                    <span class="menu-icon">◷</span>
+                    <span>Agendamento</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-footer">
+
+                <button id="logout-btn" class="logout-button">
+                    <span>↪</span>
+                    Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- HEADER -->
+            <header class="top-header">
+
+                <div>
+                    <span class="header-title">Painel do aluno</span>
+                </div>
+
+                <div class="user-area">
+
+                    <div class="user-info">
+                        <strong id="user-name">Aluno ENVIE</strong>
+                        <span id="user-profile">Aluno</span>
+                    </div>
+
+                    <div class="user-avatar">
+                        A
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 DASHBOARD
+            ========================== -->
+            <section id="dashboard-screen" class="screen active-screen">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="page-kicker">BEM-VINDO</span>
+                        <h1>Olá, aluno!</h1>
+                        <p>
+                            Acompanhe suas atividades e compromissos na ENVIE.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-cards">
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon yellow">
+                            ✓
+                        </div>
+
+                        <div>
+                            <span>Atividades pendentes</span>
+                            <strong>03</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon dark">
+                            ▣
+                        </div>
+
+                        <div>
+                            <span>Materiais disponíveis</span>
+                            <strong>12</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon yellow">
+                            ◷
+                        </div>
+
+                        <div>
+                            <span>Próximo compromisso</span>
+                            <strong>14:00</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    <div class="content-card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h2>Atividades pendentes</h2>
+                                <p>Confira o que precisa ser realizado.</p>
+                            </div>
+
+                            <button
+                                class="text-button"
+                                data-go-screen="activities-screen"
+                            >
+                                Ver todas
+                            </button>
+
+                        </div>
+
+
+                        <div class="activity-list">
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    01
+                                </div>
+
+                                <div class="activity-info">
+                                    <strong>Atividade Missionária</strong>
+                                    <span>Prazo: 20/09/2026</span>
+                                </div>
+
+                                <span class="status pending">
+                                    Pendente
+                                </span>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    02
+                                </div>
+
+                                <div class="activity-info">
+                                    <strong>Estudo Bíblico</strong>
+                                    <span>Prazo: 22/09/2026</span>
+                                </div>
+
+                                <span class="status pending">
+                                    Pendente
+                                </span>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    03
+                                </div>
+
+                                <div class="activity-info">
+                                    <strong>Relatório de Campo</strong>
+                                    <span>Prazo: 25/09/2026</span>
+                                </div>
+
+                                <span class="status pending">
+                                    Pendente
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="content-card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h2>Avisos</h2>
+                                <p>Informações importantes.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="notice-list">
+
+                            <div class="notice-item">
+
+                                <div class="notice-dot"></div>
+
+                                <div>
+                                    <strong>
+                                        Novo material disponível
+                                    </strong>
+
+                                    <span>
+                                        Um novo conteúdo foi disponibilizado.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="notice-item">
+
+                                <div class="notice-dot"></div>
+
+                                <div>
+                                    <strong>
+                                        Encontro da turma
+                                    </strong>
+
+                                    <span>
+                                        Confira o calendário para mais detalhes.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 MATERIAIS
+            ========================== -->
+            <section id="materials-screen" class="screen">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="page-kicker">ESTUDOS</span>
+                        <h1>Materiais</h1>
+                        <p>
+                            Acesse os materiais disponibilizados para seus estudos.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <div class="search-box">
+
+                        <input
+                            type="text"
+                            id="material-search"
+                            placeholder="Pesquisar material..."
+                        >
+
+                    </div>
+
+
+                    <div id="materials-list" class="materials-grid">
+
+                        <div class="material-card" data-title="Introdução à Missão">
+
+                            <div class="material-icon">
+                                PDF
+                            </div>
+
+                            <div>
+                                <h3>Introdução à Missão</h3>
+                                <p>Material de estudo</p>
+                            </div>
+
+                            <button class="btn btn-small btn-outline">
+                                Acessar
+                            </button>
+
+                        </div>
+
+
+                        <div class="material-card" data-title="Evangelismo">
+
+                            <div class="material-icon">
+                                PDF
+                            </div>
+
+                            <div>
+                                <h3>Evangelismo</h3>
+                                <p>Material de estudo</p>
+                            </div>
+
+                            <button class="btn btn-small btn-outline">
+                                Acessar
+                            </button>
+
+                        </div>
+
+
+                        <div class="material-card" data-title="Liderança">
+
+                            <div class="material-icon">
+                                PDF
+                            </div>
+
+                            <div>
+                                <h3>Liderança</h3>
+                                <p>Material de estudo</p>
+                            </div>
+
+                            <button class="btn btn-small btn-outline">
+                                Acessar
+                            </button>
+
+                        </div>
+
+
+                        <div class="material-card" data-title="Vida Cristã">
+
+                            <div class="material-icon">
+                                PDF
+                            </div>
+
+                            <div>
+                                <h3>Vida Cristã</h3>
+                                <p>Material de estudo</p>
+                            </div>
+
+                            <button class="btn btn-small btn-outline">
+                                Acessar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 ATIVIDADES
+            ========================== -->
+            <section id="activities-screen" class="screen">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="page-kicker">ACOMPANHAMENTO</span>
+                        <h1>Atividades</h1>
+                        <p>
+                            Consulte suas atividades acadêmicas.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <div class="activity-list">
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                01
+                            </div>
+
+                            <div class="activity-info">
+                                <strong>Atividade Missionária</strong>
+                                <span>Prazo: 20/09/2026</span>
+                            </div>
+
+                            <span class="status pending">
+                                Pendente
+                            </span>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                02
+                            </div>
+
+                            <div class="activity-info">
+                                <strong>Estudo Bíblico</strong>
+                                <span>Prazo: 22/09/2026</span>
+                            </div>
+
+                            <span class="status pending">
+                                Pendente
+                            </span>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                03
+                            </div>
+
+                            <div class="activity-info">
+                                <strong>Relatório de Campo</strong>
+                                <span>Prazo: 25/09/2026</span>
+                            </div>
+
+                            <span class="status completed">
+                                Concluída
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 AVISOS
+            ========================== -->
+            <section id="notices-screen" class="screen">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="page-kicker">COMUNICAÇÃO</span>
+                        <h1>Avisos</h1>
+                        <p>
+                            Confira os comunicados da escola.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <div class="notice-list">
+
+                        <div class="notice-item">
+
+                            <div class="notice-dot"></div>
+
+                            <div>
+                                <strong>Novo material disponível</strong>
+                                <span>
+                                    Consulte a área de materiais para acessar o novo conteúdo.
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="notice-item">
+
+                            <div class="notice-dot"></div>
+
+                            <div>
+                                <strong>Encontro da turma</strong>
+                                <span>
+                                    Confira a data e o horário no calendário.
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 CALENDÁRIO
+            ========================== -->
+            <section id="calendar-screen" class="screen">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="page-kicker">PROGRAMAÇÃO</span>
+                        <h1>Calendário</h1>
+                        <p>
+                            Acompanhe os próximos eventos.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <div class="calendar-placeholder">
+
+                        <div class="calendar-icon-large">
+                            □
+                        </div>
+
+                        <h2>Calendário acadêmico</h2>
+
+                        <p>
+                            Seus eventos e compromissos aparecerão aqui.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 DOCUMENTOS
+            ========================== -->
+            <section id="documents-screen" class="screen">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="page-kicker">ARQUIVOS</span>
+                        <h1>Documentos</h1>
+                        <p>
+                            Consulte seus documentos acadêmicos.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            ▤
+                        </div>
+
+                        <h2>Nenhum documento disponível</h2>
+
+                        <p>
+                            Os documentos disponibilizados aparecerão nesta área.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 TAREFA 04 — CADASTRO DE ALUNOS
+            =================================================== -->
+            <section id="students-screen" class="screen">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="page-kicker">
+                            TAREFA 04
+                        </span>
+
+                        <h1>
+                            Cadastro de Alunos
+                        </h1>
+
+                        <p>
+                            Cadastre, consulte e edite os dados dos alunos.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="new-student-btn"
+                        class="btn btn-primary"
+                    >
+                        + Novo aluno
+                    </button>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <div class="table-toolbar">
+
+                        <div>
+                            <h2>
+                                Alunos cadastrados
+                            </h2>
+
+                            <p>
+                                Gerencie os dados dos alunos.
+                            </p>
+                        </div>
+
+
+                        <div class="search-box table-search">
+
+                            <input
+                                type="text"
+                                id="student-search"
+                                placeholder="Pesquisar aluno..."
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table class="data-table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <th>Telefone</th>
+                                    <th>E-mail</th>
+                                    <th>Ações</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="students-table-body">
+
+                                <!-- preenchido pelo JavaScript -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <div
+                        id="students-empty"
+                        class="empty-state small"
+                    >
+
+                        <div class="empty-icon">
+                            ♙
+                        </div>
+
+                        <h3>
+                            Nenhum aluno cadastrado
+                        </h3>
+
+                        <p>
+                            Clique em "Novo aluno" para realizar o primeiro cadastro.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 TAREFA 05 — AGENDAMENTO
+            =================================================== -->
+            <section id="schedule-screen" class="screen">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="page-kicker">
+                            TAREFA 05
+                        </span>
+
+                        <h1>
+                            Tela de Agendamento
+                        </h1>
+
+                        <p>
+                            Selecione o aluno, atividade, data e horário.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="schedule-layout">
+
+                    <!-- FORMULÁRIO -->
+                    <div class="content-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h2>
+                                    Novo agendamento
+                                </h2>
+
+                                <p>
+                                    Preencha os dados abaixo.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <form id="schedule-form">
+
+                            <div class="form-group">
+
+                                <label for="schedule-student">
+                                    Aluno *
+                                </label>
+
+                                <select
+                                    id="schedule-student"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Selecione o aluno
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="schedule-service">
+                                    Atividade / Serviço *
+                                </label>
+
+                                <select
+                                    id="schedule-service"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Selecione a atividade
+                                    </option>
+
+                                    <option value="Atendimento pedagógico">
+                                        Atendimento pedagógico
+                                    </option>
+
+                                    <option value="Orientação acadêmica">
+                                        Orientação acadêmica
+                                    </option>
+
+                                    <option value="Entrega de atividade">
+                                        Entrega de atividade
+                                    </option>
+
+                                    <option value="Reunião com professor">
+                                        Reunião com professor
+                                    </option>
+
+                                    <option value="Atividade missionária">
+                                        Atividade missionária
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="schedule-date">
+                                        Data *
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="schedule-date"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="schedule-time">
+                                        Horário *
+                                    </label>
+
+                                    <select
+                                        id="schedule-time"
+                                        required
+                                    >
+
+                                        <option value="">
+                                            Selecione
+                                        </option>
+
+                                        <option value="08:00">
+                                            08:00
+                                        </option>
+
+                                        <option value="09:00">
+                                            09:00
+                                        </option>
+
+                                        <option value="10:00">
+                                            10:00
+                                        </option>
+
+                                        <option value="14:00">
+                                            14:00
+                                        </option>
+
+                                        <option value="15:00">
+                                            15:00
+                                        </option>
+
+                                        <option value="16:00">
+                                            16:00
+                                        </option>
+
+                                        <option value="17:00">
+                                            17:00
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="schedule-notes">
+                                    Observações
+                                </label>
+
+                                <textarea
+                                    id="schedule-notes"
+                                    rows="4"
+                                    placeholder="Digite alguma observação..."
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="form-actions">
+
+                                <button
+                                    type="button"
+                                    id="clear-schedule-btn"
+                                    class="btn btn-outline"
+                                >
+                                    Cancelar
+                                </button>
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary"
+                                >
+                                    Confirmar agendamento
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- RESUMO -->
+                    <div class="content-card summary-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h2>
+                                    Resumo
+                                </h2>
+
+                                <p>
+                                    Confira os dados antes de confirmar.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="schedule-summary"
+                            class="schedule-summary"
+                        >
+
+                            <div class="summary-empty">
+
+                                <div class="summary-icon">
+                                    ◷
+                                </div>
+
+                                <p>
+                                    Preencha os campos para visualizar o resumo do agendamento.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AGENDAMENTOS CONFIRMADOS -->
+                <div class="content-card appointments-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h2>
+                                Agendamentos confirmados
+                            </h2>
+
+                            <p>
+                                Lista dos agendamentos realizados.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="appointments-list"
+                        class="appointments-list"
+                    >
+
+                        <!-- preenchido pelo JavaScript -->
+
+                    </div>
+
+
+                    <div
+                        id="appointments-empty"
+                        class="empty-state small"
+                    >
+
+                        <div class="empty-icon">
+                            ◷
+                        </div>
+
+                        <h3>
+                            Nenhum agendamento
+                        </h3>
+
+                        <p>
+                            Os agendamentos confirmados aparecerão aqui.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ==================================================
+         MODAL — CADASTRO / EDIÇÃO DE ALUNO
+    =================================================== -->
+    <div
+        id="student-modal"
+        class="modal-overlay hidden"
+    >
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="page-kicker">
+                        TAREFA 04
+                    </span>
+
+                    <h2 id="student-modal-title">
+                        Novo aluno
+                    </h2>
+
+                    <p>
+                        Preencha os dados do aluno.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="close-student-modal"
+                    class="modal-close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="student-form">
+
+                <input
+                    type="hidden"
+                    id="student-id"
+                >
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="student-name">
+                            Nome completo *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="student-name"
+                            placeholder="Digite o nome completo"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="student-cpf">
+                            CPF *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="student-cpf"
+                            placeholder="000.000.000-00"
+                            maxlength="14"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="student-birth">
+                            Data de nascimento *
+                        </label>
+
+                        <input
+                            type="date"
+                            id="student-birth"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="student-phone">
+                            Telefone *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="student-phone"
+                            placeholder="(00) 00000-0000"
+                            maxlength="15"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="student-email">
+                        E-mail *
+                    </label>
+
+                    <input
+                        type="email"
+                        id="student-email"
+                        placeholder="aluno@email.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="student-address">
+                        Endereço *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="student-address"
+                        placeholder="Rua, número, bairro, cidade..."
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        id="cancel-student-btn"
+                        class="btn btn-outline"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Salvar aluno
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+    <div
+        id="toast"
+        class="toast"
+    >
+        <span id="toast-message"></span>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
