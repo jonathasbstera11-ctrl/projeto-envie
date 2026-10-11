@@ -35,105 +35,88 @@ document.addEventListener("DOMContentLoaded", () => {
 // LOGIN
 // =========================================================
 
+
 function initLogin() {
     const loginForm = document.getElementById("login-form");
     const loginScreen = document.getElementById("login-screen");
     const app = document.getElementById("app");
 
-    if (!loginForm) {
-        return;
-    }
+    if (!loginForm) return;
 
-    loginForm.addEventListener("submit", function (event) {
+    loginForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        const emailInput = document.getElementById("login-email");
-        const passwordInput = document.getElementById("login-password");
-
-        const email = emailInput ? emailInput.value.trim() : "";
-        const password = passwordInput ? passwordInput.value.trim() : "";
+        const email = document.getElementById("login-email")?.value.trim();
+        const password = document.getElementById("login-password")?.value;
 
         if (!email || !password) {
             showToast("Preencha e-mail e senha.");
             return;
         }
 
-        if (loginScreen) {
-            loginScreen.classList.add("hidden");
-        }
+        try {
+            const { data, error } = await supabaseClient.auth.signInWithPassword({
+                email,
+                password
+            });
 
-        if (app) {
-            app.classList.remove("hidden");
-        }
-
-        const userName = document.getElementById("user-name");
-        const userProfile = document.getElementById("user-profile");
-        const avatar = document.querySelector(".user-avatar");
-
-        const name = getNameFromEmail(email);
-
-        if (userName) {
-            userName.textContent = name;
-        }
-
-        if (userProfile) {
-            userProfile.textContent = email.toLowerCase().includes("professor")
-                ? "Professor"
-                : "Aluno";
-        }
-
-        if (avatar) {
-            avatar.textContent = name.charAt(0).toUpperCase();
-        }
-
-        showToast("Login realizado com sucesso.");
-    });
-
-    const demoButtons = document.querySelectorAll(".demo-btn");
-
-    demoButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const email = button.dataset.email || "";
-            const password = button.dataset.password || "";
-
-            const emailInput = document.getElementById("login-email");
-            const passwordInput = document.getElementById("login-password");
-
-            if (emailInput) {
-                emailInput.value = email;
+            if (error) {
+                showToast("E-mail ou senha incorretos.");
+                return;
             }
 
-            if (passwordInput) {
-                passwordInput.value = password;
+            const { data: perfil, error: erroPerfil } = await supabaseClient
+                .from("perfis")
+                .select("nome, papel, aprovado")
+                .eq("id", data.user.id)
+                .single();
+
+            if (erroPerfil || !perfil || !perfil.aprovado) {
+                await supabaseClient.auth.signOut();
+                showToast("Acesso ainda não autorizado.");
+                return;
             }
 
-            if (typeof loginForm.requestSubmit === "function") {
-                loginForm.requestSubmit();
-            } else {
-                loginForm.dispatchEvent(
-                    new Event("submit", {
-                        bubbles: true,
-                        cancelable: true
-                    })
-                );
+            if (loginScreen) loginScreen.classList.add("hidden");
+            if (app) app.classList.remove("hidden");
+
+            const nome = perfil.nome || getNameFromEmail(email);
+            const userName = document.getElementById("user-name");
+            const userProfile = document.getElementById("user-profile");
+            const avatar = document.querySelector(".user-avatar");
+
+            if (userName) userName.textContent = nome;
+
+            const papeis = {
+                administrador: "Administrador",
+                secretaria: "Secretaria",
+                professor: "Professor",
+                aluno: "Aluno"
+            };
+
+            if (userProfile) {
+                userProfile.textContent = papeis[perfil.papel] || "Usuário";
             }
-        });
+
+            if (avatar) avatar.textContent = nome.charAt(0).toUpperCase();
+
+            showToast("Login realizado com sucesso.");
+        } catch (erro) {
+            console.error("Erro no login:", erro);
+            showToast("Não foi possível conectar. Tente novamente.");
+        }
     });
 
     const logoutButton = document.getElementById("logout-btn");
 
     if (logoutButton) {
-        logoutButton.addEventListener("click", () => {
-            if (app) {
-                app.classList.add("hidden");
-            }
+        logoutButton.addEventListener("click", async () => {
+            await supabaseClient.auth.signOut();
 
-            if (loginScreen) {
-                loginScreen.classList.remove("hidden");
-            }
+            if (app) app.classList.add("hidden");
+            if (loginScreen) loginScreen.classList.remove("hidden");
 
             loginForm.reset();
-
             showToast("Você saiu do sistema.");
         });
     }
