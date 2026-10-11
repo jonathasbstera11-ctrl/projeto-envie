@@ -6,6 +6,14 @@
 const STUDENTS_STORAGE_KEY = "envie_alunos";
 const APPOINTMENTS_STORAGE_KEY = "envie_agendamentos";
 
+const SUPABASE_URL = "https://lgdjroylobyhaifkitvk.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_K_cEBXE3WAfGMF4MV0wVDg_ljKc5gLU";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+
 // =========================================================
 // INICIALIZAÇÃO
 // =========================================================
